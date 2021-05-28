@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "cypress open --config-file ./cypress/config/cypress.json",
-    "test": "cypress run",
+    "all-test": "concurrently --kill-others \"npm run ui-run\" \"npm run api-test\"",
+    "all-run": "concurrently --kill-others \"npm run ui-run\" \"npm run api-run\"",
+    "test": "cypress run --config-file ./cypress/config/cypress.json",
     "verify": "cypress verify",
     "record": "cypress run --record --key cdb6ccb4-9476-4871-a722-94f02f6ab086",
     "api-test": "cypress open --config-file ./cypress/config/cypress-api.json",

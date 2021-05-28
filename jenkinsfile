@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'Testing..cypress test suite'
                 sh 'npm install'
-                sh 'npm run cy:run'
+                sh 'npm test'
             }
         }
         stage('Deploy') {

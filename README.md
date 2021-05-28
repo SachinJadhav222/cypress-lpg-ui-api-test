@@ -1,8 +1,26 @@
-# Money Gaming Automation Test
+# Cypress UI & API Automation 
 
-*Test Automation for Money Gaming .This is demo test project  using cypress and jenkins / circle ci pipeline, github and other tools.
+*Test Automation using cypress  .This is demo test project  using cypress and jenkins / circle ci pipeline, github and other tools. for UI and API
  The framework is BDD enabled using cucumber js to create feature file written in Gherkin Language*
 
+### Folder Structure
+* [Project Root](./tree-md) : cypress-lpg-ui-api-test
+    * [reports](./reports)  : Cucumber HTML reports
+    * [cypress](./cypress)
+        * [config](./cypress/config) - webdriver configurations , urls
+        * [features](./cypress/features) -All bdd feature file are here
+          * [api](./cypress/features/api) -feature file for API
+          * [ui](./cypress/features/ui) -feature file for UI
+        * [fixture](./cypress/fixtures) - Test fixtures and mock data
+        * [locators](./cypress/locators) - Locators, webelements are stored per page as page object.
+        * [steps](./cypress/steps) - Step defition files
+        * [support](./cypress/support) - Support and helpers  files
+        * [utils](./cypress/utils) - Utility files
+  * [.env.local](./.env.local) : This file will overwirte local environment variables 
+  * [cypress.env.local](./cypress.env.local) : This file will overwirte local environment variables 
+  * [cypress.json](./cypress.json) : Cypress configuration 
+  * [README.md](./README.md)
+ 
 ##
 **Initial Setup**
 
@@ -10,22 +28,22 @@
 
 **Set up instructions**
 
-1. Clone the repo from https://github.com/SachinJadhav222/money-gaming-automation-test
+1. Clone the repo from https://github.com/SachinJadhav222/cypress-lpg-ui-api-test
 2. run @ root folder
 ```shell script
    npm install 
 ```
-3. Once installation is succesfull then we can run the test
+3. Once installation is succesfull then we can run the cypress
 
-**Run cypress Test for UI**
+**Run cypress Test**
 
-1. To run cypress test in dastboard :
+1. To run cypress cypress in dastboard :
 ```shell script
-   npm run cy:open
+   npm start
 ```
-2. To run cypress test without dash board :
+2. To run cypress cypress without dash board :
 ```shell script
-   npm run cy:run
+   npm cypress 
  ```
 3. Similary various scripts can be found on package.json file
 
@@ -39,7 +57,7 @@ npm install
 ```shell script
 npm install nodemon -g
 ```
-4. Start test
+4. Start cypress
 ```shell script
 npm start
 ```
@@ -51,45 +69,23 @@ npm start
       password = admin
 7. Check if application is running at:  http://localhost:5002/api/members
 
-8. Once app is up ,go back to original project 'Money-gaming-automation-test' and run
+8. Once app is up ,go back to original project 'Money-gaming-automation-cypress' and run
 ```shell script
 npm run cy:api
 ```
 
-This project has Cypress dashboard for test execution and monitoring and reporting
+This project has Cypress dashboard for cypress execution and monitoring and reporting
 
 **Cypress Dashboard :** 
- https://dashboard.cypress.io/projects/bachhp/runs/1/test-results?actions=%5B%5D&browsers=%5B%5D&groups=%5B%5D&isFlaky=%5B%5D&modificationDateRange=%7B%22startDate%22%3A%221970-01-01%22%2C%22endDate%22%3A%222038-01-19%22%7D&orderBy=EXECUTION_ORDER&oses=%5B%5D&specs=%5B%5D&statuses=%5B%5D
+ 
 
 **Circle CI pipeline :**
 This project is configured with Circle CI for CICD pipeline
- : https://app.circleci.com/pipelines/github/SachinJadhav222/money-gaming-automation-test?invite=true
+ :
 
 **SonarCloud link :**
 This project is configured with Sonar cube for code quality 
-: https://sonarcloud.io/project/configuration?id=SachinJadhav222_money-gaming-automation-test
+:
 
-**Feature file Location :** "cypress\money-gaming-automation-test\cypress\tests\ui\\*.features"
 
-**API Test Spec files:**
-"cypress\money-gaming-automation-test\cypress\tests\api\\*.spec.js"
 
-**Folder structure & Files**
-
-1. .circleci : settings for circle ci , cicd pipeline
-2. cypress : this folder contains :
-    - config : configuration and urls
-    - fixture: this is used for mock data
-    - tests: this folder has all the test cases,  feature files for UI  & spec    files for API tests
-   - locator: all the web elemtsn are stored here, theses are simple JS objects stored in key value pair
-      file name start with prefix loc 
-      e.g. loc01.homePage.js
-           All the web elements in this, has name staring with loc01_ ,  loc01_join_now_button, we will be using this into the feature file. 
-           Lookign at name we can find out which file this locator is coming from 
-   - plugin: we can add plugin to index.js file e.g. cucmber plugin for BDD
-   - support: all step definitons and support files
-   - test-data : test data
-3. .gitignore file : this file contaisn what should not be checkin into the repo e.g node_module folder etc
-4. cypress.json : all cypress related setting found here
-5. jenkinsfile: jenkins file for cicd setup
-6. package.json: this file describe all dependancies and scripts for the node project
