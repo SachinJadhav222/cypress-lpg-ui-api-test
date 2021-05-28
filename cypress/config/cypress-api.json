@@ -1,0 +1,18 @@
+{
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "integrationFolder": "cypress/features/api",
+  "baseUrl": "https://api.github.com",
+  "pluginsFile": "cypress/plugins/index.js",
+  "video": false,
+  "videosFolder": "videos",
+  "screenshotsFolder": "screenshots",
+  "screenshotOnRunFailure": false,
+  "trashAssetsBeforeRuns": true,
+  "defaultCommandTimeout": 100000,
+  "pageLoadTimeout": 100000,
+  "testFiles": "**/*.*",
+  "ignoreTestFiles": [
+    "*.js",
+    "*.md"
+  ]
+}

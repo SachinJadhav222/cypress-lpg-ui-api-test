@@ -1,0 +1,57 @@
+{
+  "name": "cypress-lpg-ui-api-test",
+  "version": "1.0.0",
+  "description": "Cypress cucumber BDD project for UI and API  ",
+  "main": "index.js",
+  "scripts": {
+    "start": "cypress open --config-file ./cypress/config/cypress.json",
+    "test": "cypress run",
+    "verify": "cypress verify",
+    "record": "cypress run --record --key cdb6ccb4-9476-4871-a722-94f02f6ab086",
+    "api-test": "cypress open --config-file ./cypress/config/cypress-api.json",
+    "api-run": "cypress run --config-file ./cypress/config/cypress-api.json",
+    "ui-test": "cypress open --config-file ./cypress/config/cypress-ui.json",
+    "ui-run": "cypress run --config-file ./cypress/config/cypress-ui.json"
+  },
+  "author": "Sachin Jadhav",
+  "license": "ISC",
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.4.0",
+    "allure-commandline": "^2.13.8",
+    "cypress-cucumber-preprocessor": "^2.0.1",
+    "deepmerge": "4.2.2",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.2",
+    "fs-extra": "5.0.0",
+    "glob": "7.1.2",
+    "graceful-fs": "^4.2.4",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cucumber": "0.0.23",
+    "gulp-run": "1.7.1",
+    "gulp-sequence": "0.4.6",
+    "mochawesome": "^6.2.2",
+    "prettier": "^1.19.1",
+    "xpath.js": "1.1.0",
+    "yaml-merge": "0.0.2",
+    "yargs": "11.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "devDependencies": {
+    "@bahmutov/cy-api": "^1.5.0",
+    "cypress": "^7.4.0",
+    "cypress-xpath": "^1.4.0",
+    "gulp": "^3.9.1",
+    "js-yaml": "^3.10.0"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
+  }
+}

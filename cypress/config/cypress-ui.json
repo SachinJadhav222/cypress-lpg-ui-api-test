@@ -1,0 +1,17 @@
+{
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "integrationFolder": "cypress/features/ui",
+  "video": true,
+  "videosFolder": "videos",
+  "screenshotsFolder": "screenshots",
+  "screenshotOnRunFailure": true,
+  "trashAssetsBeforeRuns": true,
+  "defaultCommandTimeout": 100000,
+  "pageLoadTimeout": 100000,
+  "testFiles": "**/*.*",
+  "ignoreTestFiles": [
+    "*.js",
+    "*.md"
+  ],
+  "projectId": "bachhp"
+}
