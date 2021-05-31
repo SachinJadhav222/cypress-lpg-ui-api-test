@@ -8,7 +8,7 @@ Feature: Pokemon GET /pokemon/{pokemon_name or id}
         Then I set header "Content-Type" as "application/json"
         Given I GET "/pikachu"
         Then Verify response status code is 200
-       # And Response body should be valid according to schema file "./cypress/fixtures/json-schema/poki-schema.json"
+        And Response body should be valid according to schema file "./cypress/fixtures/schema/poki-schema.json"
         And Verify response details for Pokemon "pikachu"
 
 

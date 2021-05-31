@@ -6,8 +6,10 @@ const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 
 //cucumber processor
 module.exports = (on, config) => {
+  console.log('This is config====>>>>',config)
   on('file:preprocessor', cucumber())
    allureWriter(on, config);
+   
    return config;
 
 }

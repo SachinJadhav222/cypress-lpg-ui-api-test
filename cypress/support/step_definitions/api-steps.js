@@ -1,7 +1,7 @@
-
 //const { Then } = require("cypress-cucumber-preprocessor/steps");
 //const getUrl = require("../../config/urls/urls");
 
+const { Then } = require("cypress-cucumber-preprocessor/steps");
 const {
   setBaseUrl,
   makeApiCall,
@@ -11,11 +11,12 @@ const {
   verifyrResponseCode,
   verifyResponseProperty,
   verifyResponseBodyContaints,
-  validateResponseWithSchema
+  validateResponseWithSchema,
 } = require("./api-helper");
 
 Given("I set base URL as {string}", function(url) {
   setBaseUrl(url);
+  //cy.setBaseUrl(url)
 });
 
 Then("I set header {string} as {string}", (headerName, headerValue) => {
@@ -39,9 +40,12 @@ Then("Verify response status code is {int}", (statusCode) => {
   verifyrResponseCode(statusCode);
 });
 
-Then("Response body should be valid according to schema file {string}",(schemaFile)=>{
-  validateResponseWithSchema(schemaFile);
-})
+Then(
+  "Response body should be valid according to schema file {string}",
+  (schemaFile) => {
+    validateResponseWithSchema(schemaFile);
+  }
+);
 
 Then("Verify response details for Pokemon {string}", (expectedValue) => {
   //apicall.verifyResponseProperty(expectedValue)
@@ -61,5 +65,5 @@ Then("Verify response details for Pokemon {string}", (expectedValue) => {
 });
 
 Then("Verify response body should contain {string}", function(expectedValue) {
-     verifyResponseBodyContaints(expectedValue)
+  verifyResponseBodyContaints(expectedValue);
 });

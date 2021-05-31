@@ -7,7 +7,7 @@
 //const path= require('path');
 
 //let fixturesDirectory = "./cypress/fixtures/json-schema";
-const {getPokiSchema}=require( './../../fixtures/schema/poki-schema');
+const {getPokiSchema}=require( './../fixtures/schema/poki-schema');
 //import {definitionsHelper} from './../../fixtures/schema/schema-definitions'
 const Ajv= require('ajv') 
 require('dotenv').config();

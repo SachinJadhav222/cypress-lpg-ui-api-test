@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@shelex/cypress-allure-plugin": "^2.4.0",
+    "ajv": "^6.12.3",
     "allure-commandline": "^2.13.8",
     "cypress-cucumber-preprocessor": "^2.0.1",
     "deepmerge": "4.2.2",
