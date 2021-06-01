@@ -1,3 +1,8 @@
+@parentSuite("E2E_suite")
+@suite("UI_suite")
+@subSuite("UI_sub_suite")
+@epic("Behaviours epic")
+@story("Behaviours story")
 Feature: BBC Weather
     As user
     I want to expolre BBC web

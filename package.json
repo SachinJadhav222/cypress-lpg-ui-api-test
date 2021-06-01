@@ -4,6 +4,7 @@
   "description": "Cypress cucumber BDD project for UI and API  ",
   "main": "index.js",
   "scripts": {
+    "runner": "node cypress/config/runner.js",
     "start": "cypress open --config-file ./cypress/config/cypress.json",
     "all-test": "concurrently --kill-others \"npm run ui-run\" \"npm run api-test\"",
     "all-run": "concurrently --kill-others \"npm run ui-run\" \"npm run api-run\"",
@@ -11,9 +12,13 @@
     "verify": "cypress verify",
     "record": "cypress run --record --key cdb6ccb4-9476-4871-a722-94f02f6ab086",
     "api-test": "cypress open --config-file ./cypress/config/cypress-api.json",
-    "api-run": "cypress run --config-file ./cypress/config/cypress-api.json",
+    "api-run": "cypress run --env allure=true --config-file ./cypress/config/cypress-api.json",
     "ui-test": "cypress open --config-file ./cypress/config/cypress-ui.json",
-    "ui-run": "cypress run --config-file ./cypress/config/cypress-ui.json"
+    "ui-run": "cypress run --env allure=true --config-file ./cypress/config/cypress-ui.json",
+    "allure-report": "allure generate allure-results --clean -o allure-report",
+    "clean": "node cypress/utils/clean.js",
+    "api" : "npm run clean && npm run api-run && npm run allure-report",
+    "ui" : "npm run clean && npm run ui-run && npm run allure-report"
   },
   "author": "Sachin Jadhav",
   "license": "ISC",

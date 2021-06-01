@@ -21,6 +21,10 @@ Then('I shloud see home page', () => {
 	cy.get('#account_summary_tab').should('be.visible')
 })
 
+Then('I expect to see URL containing {string}',(expectedValue)=>{
+   cy.url('include',expectedValue)
+})
+
 Then('I should see {string} at {string}', (expectedValue, selector) => {
 	cy.getSelector(selector)
 		.should('be.visible')

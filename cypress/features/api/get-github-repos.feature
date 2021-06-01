@@ -1,3 +1,5 @@
+@parentSuite("API_suite")
+@suite("gitHub")
 Feature: Get GitHub Repos
 
     Background: Set GIT HUB base url

@@ -1,10 +1,11 @@
-@lpg
+@parentSuite("API_suite")
+@suite("lpg")
 Feature: Get the city Attraction using REST API
 
     As QA
     I want to check REST API response
-    Background: Set Base URL
-        Given I set base URL as "lpg_url"
+   # Background: Set Base URL
+    #    Given I set base URL as "lpg_url"
 
     Scenario: Get All Citys
         Then I set header "Content-Type" as "application/json"
