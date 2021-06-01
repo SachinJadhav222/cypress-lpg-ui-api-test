@@ -5,9 +5,7 @@ workflows:
   build:
     jobs:
       # first get the source code and install npm dependencies
-      - cypress/install:
-          # run a custom app build step
-          build: 'npm install'
+      - cypress/install
       - cypress/run:
           requires:
             - cypress/install
