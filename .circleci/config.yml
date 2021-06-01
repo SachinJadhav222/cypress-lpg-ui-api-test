@@ -8,7 +8,6 @@ workflows:
       - cypress/install:
           name: "Set-up"
       - cypress/run:
-          name: "Cypress Test Suit"
           requires:
             - cypress/install
           
