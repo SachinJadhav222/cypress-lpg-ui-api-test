@@ -17,6 +17,7 @@ cypress/config/secret-keys
 allure-report
 allure-results
 .env
+.ignore-files
 
 
 

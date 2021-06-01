@@ -21,13 +21,13 @@ jobs:
             - v3-deps-{{ .Branch }}
             - v3-deps
       - run:
-          name: Install Dependencies
+          name: Install Node Modules using 'npm install'
           command: npm install
       - save_cache:
-          name: Save cache both yarn and Cypress!
+          name: Save cache both node moduls and Cypress!
           key: v3-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - ~/.cache ## cache both yarn and Cypress!
+            - ~/.cache ## cache both node modules and Cypress!
       - run:
           name: Run Cypress Tests Suite
           command: npm test
