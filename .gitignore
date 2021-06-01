@@ -8,7 +8,6 @@ tools
 .prettierrc
 .vscode/
 node_modules/
-package-lock.json
 mochawesome-report/
 screenshots/
 videos/
