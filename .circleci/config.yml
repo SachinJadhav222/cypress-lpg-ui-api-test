@@ -10,17 +10,4 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
-      - run:
-          name: Generate `Allure report` html report
-          when: always
-          # Run command from orb more info https://github.com/ayte-io/circle-ci-orb-allure
-          command: allure generate
-      - store_artifacts:
-          name: Uploading cypress/videos artifacts
-          path: cypress/videos
-      - store_artifacts:
-          name: Uploading cypress/screenshots artifacts
-          path: cypress/screenshots
-      - store_artifacts:
-          name: Uploading allure-report artifacts
-          path: allure-report
+      
