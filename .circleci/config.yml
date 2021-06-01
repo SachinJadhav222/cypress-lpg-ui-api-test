@@ -4,4 +4,11 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress-io/run
+      # first get the source code and install npm dependencies
+      - cypress/install:
+          # run a custom app build step
+          build: 'npm install'
+      - cypress/run:
+          requires:
+            - cypress/install
+          
