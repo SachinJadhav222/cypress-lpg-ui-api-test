@@ -5,8 +5,10 @@ workflows:
   build:
     jobs:
       # first get the source code and install npm dependencies
-      - cypress/install
+      - cypress/install:
+          name: "Set-up"
       - cypress/run:
+          name: "Cypress Test Suit"
           requires:
             - cypress/install
           
