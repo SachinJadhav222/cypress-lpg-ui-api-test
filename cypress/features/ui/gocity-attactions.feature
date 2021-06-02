@@ -1,8 +1,8 @@
-@parentSuite("E2E_suite")
-@suite("UI_suite")
-@subSuite("UI_sub_suite")
-@epic("Behaviours epic")
-@story("Behaviours story")
+@parentSuite("UI-Test")
+# @suite("UI_suite")
+# @subSuite("UI_sub_suite")
+# @epic("Behaviours epic")
+# @story("Behaviours story")
 Feature: GoCity Attractions
     As user
     I want to expolre gocity web
