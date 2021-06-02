@@ -1,8 +1,9 @@
 const fs = require("fs");
-const getEnvVeriables =require('./getEnvVeriables').getEnvVeriables
+require("dotenv").config();
+
 const executerMetaData = {};
-executerMetaData['name']=getEnvVeriables('SDET')
-executerMetaData['buildName']=getEnvVeriables('PROJECT')
+executerMetaData['name']=process.env['SDET'];
+executerMetaData['buildName']=process.env['PROJECT'];
 
 const json = JSON.stringify([executerMetaData]);
 fs.writeFileSync("allure-report/widgets/executors.json", json);

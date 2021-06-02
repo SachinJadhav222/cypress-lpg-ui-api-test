@@ -1,36 +1,25 @@
 ///// <reference types="@bahmutov/cy-api" />
 
-//const getUrl = require("../../config/urls/urls");
-//const getSecrets = require("../../config/secrets/secret");
-//const chalk = require("chalk");
+const { getPokiSchema } = require("./../../fixtures/schema/poki-schema");
 
-//const path= require('path');
+require("dotenv").config();
+const Ajv = require("ajv");
 
-//let fixturesDirectory = "./cypress/fixtures/json-schema";
-const {getPokiSchema}=require( './../../fixtures/schema/poki-schema');
-
-//import {definitionsHelper} from './../../fixtures/schema/schema-definitions'
-const Ajv= require('ajv') 
-const token1=process.env['git_token']
 let fixturesDirectory = "";
 let headers = {};
 let queryParameters = {};
 let basicAuthParameters = {};
 let requestOptions = {};
 let httpResponse = {};
-let base_url ="";
+let base_url = "";
 
 const setBaseUrl = function(url) {
-  //base_url = getUrl[url];
   base_url = Cypress.env(url);
-  //cy.log("\nBase URL-->>", base_url);
 };
 
 const setHeader = function(headerName, headerValue) {
- 
   if (headerName == "Authorization") {
     headerValue = process.env.git_token;
-   // cy.log('Token Value--->',headerValue);
   }
   let valuesArray = [];
   if (headers[headerName]) {
@@ -72,8 +61,8 @@ const setRequestOptions = function(method, resource) {
 const verifyrResponseCode = function(statusCode) {
   expect(httpResponse.status).to.eq(statusCode);
   //console.log(httpResponse.body[0])
- // cy.log("Request --->", JSON.stringify(requestOptions));
- // cy.log("Response --->", JSON.stringify(httpResponse.body));
+  // cy.log("Request --->", JSON.stringify(requestOptions));
+  // cy.log("Response --->", JSON.stringify(httpResponse.body));
 };
 
 const verifyResponseProperty = function(expectedValue) {
@@ -99,13 +88,12 @@ const validateResponseWithSchema = function(schemaFile, callback) {
   const ajv = new Ajv();
   //const validate = ajv.addSchema(definitionsHelper).compile(getPokiSchema);
   const validate = ajv.compile(getPokiSchema);
-  cy.log(getPokiSchema)
+  cy.log(getPokiSchema);
   const valid = validate(httpResponse.body);
-  cy.log(httpResponse)
+  cy.log(httpResponse);
 
   if (!valid) {
     cy.log("Schema NOT Valid!");
-   
   } else {
     cy.log("Schema validated!");
   }
@@ -122,7 +110,7 @@ const validateResponseWithSchema = function(schemaFile, callback) {
   // const path= require('path');
 
   // fs.readFile(path.join(fixturesDirectory, schemaFile), "utf8", function(err,jsonSchemaString) {
-    
+
   //   if (err) {
   //     callback(err);
   //   } else {
@@ -164,5 +152,5 @@ module.exports = {
   verifyrResponseCode,
   verifyResponseProperty,
   verifyResponseBodyContaints,
-  validateResponseWithSchema
+  validateResponseWithSchema,
 };
