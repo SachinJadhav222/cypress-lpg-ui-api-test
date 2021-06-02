@@ -8,9 +8,10 @@
 
 //let fixturesDirectory = "./cypress/fixtures/json-schema";
 const {getPokiSchema}=require( './../../fixtures/schema/poki-schema');
+
 //import {definitionsHelper} from './../../fixtures/schema/schema-definitions'
 const Ajv= require('ajv') 
-require('dotenv').config();
+const token1=process.env['git_token']
 let fixturesDirectory = "";
 let headers = {};
 let queryParameters = {};
@@ -26,9 +27,10 @@ const setBaseUrl = function(url) {
 };
 
 const setHeader = function(headerName, headerValue) {
-
+ 
   if (headerName == "Authorization") {
     headerValue = process.env.git_token;
+   // cy.log('Token Value--->',headerValue);
   }
   let valuesArray = [];
   if (headers[headerName]) {

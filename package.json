@@ -16,6 +16,8 @@
     "ui-test": "cypress open --config-file ./cypress/config/cypress-ui.json",
     "ui-run": "cypress run --env allure=true --config-file ./cypress/config/cypress-ui.json",
     "allure-report": "allure generate allure-results --clean -o allure-report",
+    "allure-executer": "node cypress/utils/report-executer.js",
+    "report":"npm run allure-report && npm run allure-executer",
     "clean": "node cypress/utils/clean.js",
     "api" : "npm run clean && npm run api-run && npm run allure-report",
     "ui" : "npm run clean && npm run ui-run && npm run allure-report"

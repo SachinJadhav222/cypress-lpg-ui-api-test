@@ -30,12 +30,12 @@ jobs:
             - ~/.cache ## cache both node modules and Cypress!
       - run:
           name: Run Cypress Tests Suite
-          command: npm test
+          command: npm run clean && npm test
       - run:
           name: Generate `Allure report` html report
           when: always
           # Run command from orb more info https://github.com/ayte-io/circle-ci-orb-allure
-          command: allure generate
+          command: npm run report
       - store_artifacts:
           name: Uploading cypress/videos artifacts
           path: videos
