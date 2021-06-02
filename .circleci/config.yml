@@ -1,7 +1,4 @@
 version: 2.1
-orbs:
-  allure: ayte/allure@0.1.3
-
 jobs:
   build:
     docker:
@@ -11,9 +8,6 @@ jobs:
           TERM: xterm
     working_directory: /tmp/workspace
     steps:
-      - checkout
-      # Make `allure` command available by installing dependencies from `ayte` orb
-      - allure/install
       - restore_cache:
           name: Restore `package.json` cache
           keys:
