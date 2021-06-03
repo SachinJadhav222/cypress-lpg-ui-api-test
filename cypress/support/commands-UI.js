@@ -9,7 +9,22 @@ export const getSelector = (selector) => {
   }
 };
 
-export const validateSchema=(schema,httpResponse)=>{
+export const clickMenuTab = (selector) => {
+  cy.xpath('//li[@class="ssrcss-so3uhw-GlobalNavigationProduct eki2hvo14"]')
+    .contains(selector)
+    .click();
+};
+
+export const verifyTextPresents =(expectedValue,selector)=>{
+  
+}
+
+export const verifyUrlContents = (expectedValue) => {
+  cy.url("include", expectedValue);
+  cy.log(`url containins->`, expectedValue);
+};
+
+export const validateSchema = (schema, httpResponse) => {
   const ajv = new Ajv();
   const validate = ajv.addSchema(definitionsHelper).compile(schema);
   const valid = validate(httpResponse);
@@ -21,4 +36,4 @@ export const validateSchema=(schema,httpResponse)=>{
   } else {
     cy.log("Schema validated!");
   }
-}
+};
