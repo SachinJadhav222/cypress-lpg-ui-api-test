@@ -13,7 +13,7 @@ let requestOptions = {};
 let httpResponse = {};
 let base_url = "";
 
-const setBaseUrl = function(url) {
+const setBaspeUrl = function(url) {
   base_url = Cypress.env(url);
 };
 
