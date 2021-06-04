@@ -1,4 +1,4 @@
-@parentSuite("API-Test")
+@parentSuite("API")
 Feature: Get the city Attraction using REST API
 
     As QA

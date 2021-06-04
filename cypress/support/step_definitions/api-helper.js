@@ -12,11 +12,20 @@ let basicAuthParameters = {};
 let requestOptions = {};
 let httpResponse = {};
 let base_url = "";
-
-const setBaspeUrl = function(url) {
+/**
+ * Set the Base URL
+ * - this will overwrite cypress.json configuration
+ * @param url(string)
+ */
+const setBaseUrl = function(url) {
   base_url = Cypress.env(url);
 };
 
+/**
+ * Set the Header
+ * @param headerName(string)
+ * @param headerValue(string)
+ */
 const setHeader = function(headerName, headerValue) {
   if (headerName == "Authorization") {
     headerValue = process.env.git_token;
@@ -30,6 +39,11 @@ const setHeader = function(headerName, headerValue) {
   headers[headerName] = valuesArray.join(",");
 };
 
+/**
+ * Set Multiple Headers pass through Array ro Table
+ * @param headerTable(string)
+ *
+ */
 const setMultipleHeaders = function(headerTable) {
   let headerObject = {};
   headerTable.forEach((h) => {

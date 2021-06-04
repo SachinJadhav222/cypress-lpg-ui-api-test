@@ -1,3 +1,5 @@
+@parentSuite("NFT")
+
 Feature: Print datat talbe
     As User
     I want to  Print datat table

@@ -1,4 +1,4 @@
-@parentSuite("API-Test")
+@parentSuite("API")
 Feature: Pokemon GET /pokemon/{pokemon_name or id}
     Background: Set the base url
         Given I set base URL as "pokemon_api"

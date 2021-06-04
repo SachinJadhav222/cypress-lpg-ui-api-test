@@ -2,10 +2,50 @@
 /////<reference types="cypress"/>
 
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
-const{printTableUsingHash} =require('./ui-helper')
+const { printTableUsingHash } = require("./ui-helper");
 
 Given("I visit {string}", (URL) => {
   cy.visit(Cypress.env(URL));
+});
+Then("I perform lighthouse analysis", () => {
+  cy.lighthouse();
+});
+Then("I perform custome lighthouse analysis", () => {
+  const customThresholds = {
+    performance: 50,
+    accessibility: 50,
+    seo: 70,
+    "first-contentful-paint": 2000,
+    "largest-contentful-paint": 3000,
+    "cumulative-layout-shift": 0.1,
+    "total-blocking-time": 500,
+  };
+
+  const desktopConfig = {
+    formFactor: "desktop",
+    screenEmulation: { disabled: true },
+  };
+  cy.lighthouse(customThresholds, desktopConfig);
+});
+
+Then("I check Accessibility of the page", () => {
+  const A11Y_OPTIONS = {
+    runOnly: {
+      type: "tag",
+      values: ["wcag21aa", "wcag2aa", "best-practice", "section508"],
+    },
+  };
+  cy.injectAxe();
+  cy.checkA11y(A11Y_OPTIONS);
+
+  // cy.get(".cypress-wrapper").each((element, index) => {
+  //   cy.checkA11y(".cypress-wrapper", {
+  //     runOnly: {
+  //       type: "tag",
+  //       values: ["wcag2a"],
+  //    },
+  //   });
+  // });
 });
 
 Then("I entered {string} at {string}", (expectedValue, selector) => {
@@ -53,26 +93,33 @@ Then(
     cy.getSelector(selector).select(expedtedValue);
   }
 );
-Then("I expect to see placeholder text {string} at {string}",function(expectedValue,selector){
-	cy.getSelector(selector).invoke('attr', 'placeholder').should('contain', expectedValue)
-	//cy.getSelector(selector).should('have.text', expectedValue);
+Then("I expect to see placeholder text {string} at {string}", function(
+  expectedValue,
+  selector
+) {
+  cy.getSelector(selector)
+    .invoke("attr", "placeholder")
+    .should("contain", expectedValue);
+  //cy.getSelector(selector).should('have.text', expectedValue);
 });
 
-Then('I get the min and max temperature of {string}',function(selector){
-	let cls='.wr-value--temperature--c'
-	let clstype='.wr-weather-type__icon'
-	//let day=cy.get(selector);
-	cy.get(selector).find(cls).then(function($elm){
-    cy.log('Temperature range-->>')
-    cy.log($elm.text())
-	})
+Then("I get the min and max temperature of {string}", function(selector) {
+  let cls = ".wr-value--temperature--c";
+  let clstype = ".wr-weather-type__icon";
+  //let day=cy.get(selector);
+  cy.get(selector)
+    .find(cls)
+    .then(function($elm) {
+      cy.log("Temperature range-->>");
+      cy.log($elm.text());
+    });
 
-	cy.get(selector).find(clstype).then(function($elm){
-		cy.log('Weather warning-->>')
-		cy.log($elm.text())
-	})
-	
-
+  cy.get(selector)
+    .find(clstype)
+    .then(function($elm) {
+      cy.log("Weather warning-->>");
+      cy.log($elm.text());
+    });
 });
 
 Given("Print using rowHash", function(table) {
@@ -88,6 +135,5 @@ Given("Print using hashes", function(table) {
   cy.log(table.hashes());
 });
 Given("Print using empty object", function(table) {
-  printTableUsingHash(table)
-
+  printTableUsingHash(table);
 });

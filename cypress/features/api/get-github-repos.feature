@@ -1,4 +1,4 @@
-@parentSuite("API-Test")
+@parentSuite("API")
 Feature: Get GitHub Repos
 
     Background: Set GIT HUB base url

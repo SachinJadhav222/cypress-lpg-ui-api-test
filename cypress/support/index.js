@@ -14,14 +14,18 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-require('cypress-xpath');
+require("cypress-xpath");
 
 //Allure report plugin
-import '@shelex/cypress-allure-plugin';
+import "@shelex/cypress-allure-plugin";
 
-//api disply/logging 
-import '@bahmutov/cy-api/support';
+//api disply/logging
+import "@bahmutov/cy-api/support";
+// performance audit using lighthouse
+import "cypress-audit/commands";
+// axe fro accesibility testing
+import "cypress-axe";

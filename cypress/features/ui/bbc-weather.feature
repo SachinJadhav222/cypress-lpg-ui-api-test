@@ -1,4 +1,4 @@
-@parentSuite("UI-Test")
+@parentSuite("UI")
 # @suite("UI_suite")
 # @subSuite("UI_sub_suite")
 # @epic("Behaviours epic")
