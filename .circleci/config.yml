@@ -40,4 +40,9 @@ jobs:
       - store_artifacts:
           name: Uploading allure-report artifacts
           path: allure-report
+          
+workflows:
+    build:
+      jobs:
+        - build         
   
